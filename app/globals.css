@@ -25,3 +25,19 @@ body {
     text-wrap: balance;
   }
 }
+
+
+
+
+.page-container {
+  width: 60%;
+  margin: 0 auto;
+  padding: 1.5rem 0;
+}
+
+/* Media query for mobile devices */
+@media (max-width: 768px) {
+  .page-container {
+    width: 90%;
+  }
+}
