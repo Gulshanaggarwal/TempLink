@@ -4,6 +4,16 @@ import { createContext, useContext, useReducer } from 'react';
 const initialState = {
   files: [],
   isSettingsModalOpen: false,
+  settingsModalData:{
+    expiryTime: {
+      time: 0,
+      selectedOption: 'Never'
+    },
+    password:{
+      passwordProtection: false,
+      passwordValue: ''
+    }
+  }
 };
 
 const AppContext = createContext();
@@ -27,6 +37,12 @@ const appReducer = (state, action) => {
       return { ...state, files: action.payload };
     case ACTIONS.TOGGLE_SETTINGS_MODAL:
       return { ...state, isSettingsModalOpen: !state.isSettingsModalOpen };
+    case 'SET_EXPIRY_TIME':
+      return { ...state, settingsModalData: { ...state.settingsModalData, expiryTime: action.payload } };
+    case "PASSWORD_PROTECTION_TOGGLE":
+      return { ...state, settingsModalData: { ...state.settingsModalData, password: { ...state.settingsModalData.password, passwordProtection: action.payload} } };
+    case "SET_PASSWORD":
+      return { ...state, settingsModalData: { ...state.settingsModalData, password: { ...state.settingsModalData.password, passwordValue: action.payload} } };
     default:
       return state;
   }

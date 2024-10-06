@@ -55,7 +55,8 @@ export default function Dropzone() {
   }
 
   const handleGenerateTempLink = () => {
-    dispatch({type: "TOGGLE_SETTINGS_MODAL"})
+    // dispatch({type: "TOGGLE_SETTINGS_MODAL"})
+    document.getElementById('settings-modal').showModal()
   }
 
   return (
@@ -63,7 +64,7 @@ export default function Dropzone() {
       <div className='flex justify-center'>
         <label
           htmlFor='file-upload'
-          className='bg-violet-500 text-white px-4 py-2 rounded cursor-pointer'
+          className="btn btn-primary"
         >
           <span className='flex items-center gap-2'>
             <MdFileUpload />
@@ -143,7 +144,7 @@ export default function Dropzone() {
       </div>
       <div className="flex justify-center">
         <button 
-        className={`${files.length < 1 && "disabled" } rounded bg-gray-700 text-white font-semibold py-2 px-4`}
+        className="btn btn-neutral"
         onClick={handleGenerateTempLink}
         > Generate Your TempLink
         </button>
