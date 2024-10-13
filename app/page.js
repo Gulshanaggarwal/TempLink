@@ -16,7 +16,7 @@ export default function Home() {
           <li className="grid grid-cols-[10px_1fr] gap-2">
              <span className="font-bold">2.</span>
              <div className="pl-4 border-l-2">
-             <p>Choose an expiry time or select "Never" for permanent access. Optionally, enable password protection by entering a secure password, then hit "Create" to generate your link!</p>
+             <p>Choose an expiry time or select &quot;Never&quot; for permanent access. Optionally, enable password protection by entering a secure password, then hit &quot;Create&quot; to generate your link!</p>
              </div>
           </li>
         </ul>

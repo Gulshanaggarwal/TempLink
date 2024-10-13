@@ -4,11 +4,7 @@ import dbConnect from "@/app/utils/DbConnect";
 import TempLinks from "@/app/models/TempLinks";
 import { comparePassword, hashPassword } from "@/app/utils/utils";
 
-export const config = {
-  api: {
-    bodyParser: false,
-  },
-};
+
 
 export async function POST(request) {
     try {

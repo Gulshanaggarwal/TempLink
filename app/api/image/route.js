@@ -7,7 +7,7 @@ import TempLinks from "@/app/models/TempLinks";
 export async function GET(request) {
   try {
     await dbConnect();
-    const { searchParams } = new URL(request.url);
+    const searchParams = request.nextUrl.searchParams;
     const tempLinkId = searchParams.get('tempLinkId');
     const imageId = searchParams.get('imageId');
     const type = searchParams.get('type');

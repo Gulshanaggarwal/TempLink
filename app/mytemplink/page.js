@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from 'react';
-import { useSearchParams } from 'next/navigation';
+// import { useSearchParams } from 'next/navigation';
 import { useAppState } from '../contexts/AppStateContext';
 import DecodeWithPassword from '../components/DecodeWithPassword';
 import Custom404 from '../components/Custom404';
@@ -13,7 +13,7 @@ import AppLogo from '../components/AppLogo';
 export default function Mytemplink() {
     const {state, dispatch} = useAppState();
     const {isLoading, isTempLinkValid, isExpired, isPasswordEnabled, isPasswordUnlocked, files} = state.myTemplinkPageData;
-    const tempLinkId = useSearchParams().get('id');
+    const [tempLinkId, setTempLinkId] = useState(null);
     let component  ;
 
 
@@ -21,6 +21,8 @@ export default function Mytemplink() {
         const fetchData = async () => {
             try {
 
+                const urlParams = new URLSearchParams(window.location.search);
+                const tempLinkId = urlParams.get('id');
                 const res = await fetch(`/api/templink?id=${tempLinkId}`);
                 const data = await res.json();
                 const payload = {...state.myTemplinkPageData}
@@ -39,6 +41,7 @@ export default function Mytemplink() {
                     payload.files = data.data.files;
                 }
 
+                setTempLinkId(tempLinkId);
                 dispatch({ type: 'SET_MY_TEMP_LINK_PAGE_DATA', payload });
             } catch (error) {
                 console.error('Error: while fetching temp link data', error);
@@ -76,3 +79,5 @@ export default function Mytemplink() {
         </div>
     );
 }
+
+export const dynamic = 'force-dynamic';
