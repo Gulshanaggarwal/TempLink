@@ -36,7 +36,7 @@ export default function RootLayout({ children }) {
                  <AppLogo/>
           </header>
           {children}
-          <footer className="w-full h-auto bg-black text-center text-white absolute left-0 bottom-0 py-3">
+          <footer className="w-full h-auto bg-black text-center text-white fixed left-0 bottom-0 py-3">
              <p>Designed & developed by&nbsp;
               <a className="hover:btn-link" href="https://www.linkedin.com/in/gulshan-aggarwal-64b4121a3" target="_blank">Gulshan Aggarwal</a>
              </p>
