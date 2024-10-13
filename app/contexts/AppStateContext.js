@@ -2,17 +2,29 @@
 import { createContext, useContext, useReducer } from 'react';
 
 const initialState = {
+  errors: null,
   files: [],
   isSettingsModalOpen: false,
   settingsModalData:{
     expiryTime: {
-      time: 0,
-      selectedOption: 'Never'
+      time: new Date().getTime() + 86400000,
+      selectedOption: '1-day'
     },
     password:{
       passwordProtection: false,
       passwordValue: ''
-    }
+    },
+    error: null,
+    isTempLinkCreated: false,
+  },
+  myTemplinkPageData:{
+    isTempLinkValid: true,
+    isExpired: false,
+    isPasswordEnabled: false,
+    isPasswordUnlocked: false,
+    files: [],
+    isLoading: true,
+    downloads: []
   }
 };
 
@@ -43,6 +55,17 @@ const appReducer = (state, action) => {
       return { ...state, settingsModalData: { ...state.settingsModalData, password: { ...state.settingsModalData.password, passwordProtection: action.payload} } };
     case "SET_PASSWORD":
       return { ...state, settingsModalData: { ...state.settingsModalData, password: { ...state.settingsModalData.password, passwordValue: action.payload} } };
+    case 'SET_MY_TEMP_LINK_PAGE_DATA':
+      return { ...state, myTemplinkPageData: { ...state.myTemplinkPageData, ...action.payload } };
+    case "SET_ERROR_IN_SETTINGS_MODAL":
+      return { ...state, settingsModalData: { ...state.settingsModalData, error: action.payload } };
+    case "RESET_SETTINGS_MODAL":
+      return { ...state, settingsModalData: {...initialState.settingsModalData } };
+    case "SET_TEMP_LINK_CREATED":
+      return { ...state, settingsModalData: { ...state.settingsModalData, isTempLinkCreated: action.payload } };
+
+    case "RESET_EVERYTHING":
+      return {...initialState};
     default:
       return state;
   }

@@ -1,36 +1,43 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Templink - Secure File Sharing with Expiration and Password Protection
 
-## Getting Started
+## Overview
 
-First, run the development server:
+Templink allows you to create a **single, secure link** to access multiple files in just a few seconds. With options to set expiration dates and password protection, you gain **full control** over your file sharing experience.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Features
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+- **Upload and Share Multiple Files**: 
+  Easily drop or upload images, documents, audio, and video files and generate a single link to access them.
+  
+- **Expiration Options**: 
+  Set an expiration time for your link, or choose "Never" for permanent access.
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+- **Password Protection**: 
+  Add an extra layer of security by enabling optional password protection.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## How It Works
 
-## Learn More
+1. **Upload Files**:
+   - Drop or upload your files and hit **Proceed**.  
+   - Supported file types:
+     - **Images**: JPG, PNG, GIF, WEBP
+     - **Documents**: PDF, Word, Excel, PowerPoint
+     - **Audio**: MP3, OGG, WAV
+     - **Videos**: MP4
 
-To learn more about Next.js, take a look at the following resources:
+2. **Set Expiry and Protection**:
+   - Choose an expiry time for your link or select **"Never"** for permanent access.
+   - Optionally, enable password protection by entering a secure password.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+3. **Create Your Link**:
+   - Click **Create** to generate a secure link for your files. Share the link and access it with the password (if password protection is enabled).
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+## Usage
 
-## Deploy on Vercel
+1. **Upload Files**: Start by dropping your files in the designated area or clicking to upload.
+2. **Customize Settings**: Set the expiration time and add a password if required.
+3. **Generate Link**: Once you've made your selections, generate the link and share it securely.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Note
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+If password protection is enabled, recipients will need the password to access the files.

@@ -2,6 +2,7 @@
 import localFont from "next/font/local";
 import { AppStateProvider } from "./contexts/AppStateContext";
 import "./globals.css";
+import AppLogo from "./components/AppLogo";
 
 const geistSans = localFont({
   src: "./fonts/GeistVF.woff",
@@ -20,13 +21,26 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+
+
+
+
+
   return (
     <html lang="en">
       <body
-        className={`${geistSans.variable} ${geistMono.variable} antialiased`}
+        className={`${geistSans.variable} ${geistMono.variable} antialiased page-container`}
       >
         <AppStateProvider>
+          <header>
+                 <AppLogo/>
+          </header>
           {children}
+          <footer className="w-full h-auto bg-black text-center text-white absolute left-0 bottom-0 py-3">
+             <p>Designed & developed by&nbsp;
+              <a className="hover:btn-link" href="https://www.linkedin.com/in/gulshan-aggarwal-64b4121a3" target="_blank">Gulshan Aggarwal</a>
+             </p>
+          </footer>
         </AppStateProvider>
       </body>
     </html>
